@@ -1,7 +1,12 @@
 import javax.imageio.ImageIO;
+
+import com.objectplanet.image.PngEncoder;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -139,8 +144,14 @@ public class Bin2img
         {
         	System.out.println();
         	System.out.println("Image saving...");
-            ImageIO.write(bi, "PNG", output_file);
-            System.out.println("Saved to "+filename);
+        	
+            //ImageIO.write(bi, "PNG", output_file);
+            
+        	BufferedOutputStream imageOutputStream = new BufferedOutputStream(new FileOutputStream(output_file));
+            new PngEncoder().encode(bi, imageOutputStream);
+            imageOutputStream.close();
+        	
+        	System.out.println("Saved to "+filename);
         }
         catch (IOException e)
         {

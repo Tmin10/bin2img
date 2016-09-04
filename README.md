@@ -1,6 +1,8 @@
 # bin2img
 This program can create PNG images from binary files
 
+Last avalible release: https://github.com/Tmin10/bin2img/releases/latest
+
 Usage:
 ```bin2img.jar [--background 1/0] [--width width_in_px] [--color 1/0] [--lowcolors 1/0] [--circle 1/0] [--out output_file_name] input_file_name```
 
